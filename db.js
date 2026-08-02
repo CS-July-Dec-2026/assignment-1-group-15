@@ -1,0 +1,32 @@
+const path = require("path");
+const fs = require("fs");
+const Database = require("better-sqlite3");
+
+const dbFile = path.join(__dirname, "classmates.db");
+const isNewDatabase = !fs.existsSync(dbFile);
+const db = new Database(dbFile);
+
+if (isNewDatabase) {
+  db.exec(`
+    CREATE TABLE accounts (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username TEXT UNIQUE NOT NULL,
+      password TEXT NOT NULL,
+      display_name TEXT NOT NULL,
+      message TEXT
+    );
+  `);
+
+  const addAccount = db.prepare(
+    "INSERT INTO accounts (username, password, display_name, message) VALUES (?, ?, ?, ?)"
+  );
+
+  addAccount.run("arjun", "Football123", "Arjun", null);
+  addAccount.run("meera", "SummerFun2024", "Meera", null);
+  addAccount.run("kabir", "ChessMaster9", "Kabir", null);
+  addAccount.run("zara", "RainbowUnicorn", "Zara", null);
+
+  console.log("Set up a fresh classmates.db with four accounts.");
+}
+
+module.exports = db;
