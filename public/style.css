@@ -1,0 +1,126 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 35%, #f6567c 70%, #ff9a44 100%);
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 30px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 36px 40px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.8em;
+  color: #4b2e83;
+}
+
+.subtitle {
+  color: #666;
+  margin: 0 0 24px 0;
+  font-size: 1.05em;
+}
+
+.subtitle.sad {
+  color: #e0554f;
+  font-weight: bold;
+}
+
+form {
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #4b2e83;
+  margin: 14px 0 6px 0;
+  font-size: 0.95em;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 3px solid #e6dcff;
+  border-radius: 14px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  border-color: #764ba2;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 22px;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.btn-blue   { background: #4da3ff; }
+.btn-green  { background: #34c98e; }
+.btn-yellow { background: #ffb020; }
+.btn-pink   { background: #ff6fa5; }
+
+.button-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.button-row .btn { margin-top: 0; }
+
+.message-box {
+  background: #fff6e0;
+  border: 3px dashed #ffb020;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 18px 0;
+  font-size: 1.05em;
+  color: #6b4a00;
+  text-align: left;
+}
+
+.message-box.empty {
+  color: #999;
+  border-color: #ddd;
+  background: #f7f7f7;
+  text-align: center;
+}
