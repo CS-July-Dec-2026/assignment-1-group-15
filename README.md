@@ -1,4 +1,4 @@
-# Classmate Hub
+# CS_Lab_1
 
 A simple class portal where students can log in, set a fun personal
 message on their page, and update their password.
