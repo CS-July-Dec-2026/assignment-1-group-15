@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CS_Lab_1
 
 A simple class portal where students can log in, set a fun personal
@@ -88,3 +89,6 @@ This application implements zero-knowledge message storage using the Web Crypto 
    - Open DevTools Network tab.
    - On the `/account` page, enter your password and click "Unlock".
    - Notice that **zero network requests** are made during the decryption process. All processing happens in-browser memory.
+=======
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/AKPYgxXR)
+>>>>>>> f7ba529b017e1491bc6a344ced262024138c9c00
