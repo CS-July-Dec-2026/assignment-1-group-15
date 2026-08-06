@@ -59,3 +59,32 @@ the `PORT` environment variable before starting:
 ```bash
 PORT=8080 npm start
 ```
+
+## Client-Side AES-GCM Message Encryption
+
+This application implements zero-knowledge message storage using the Web Crypto API.
+
+### How It Works
+- **Encryption**: When setting a message, the plaintext and the user's password never leave the browser. The password is hashed using SHA-256 and used as the key for AES-GCM encryption. A random 12-byte Initialization Vector (IV) is generated. The ciphertext and IV are base64-encoded and sent to the server.
+- **Decryption**: On the account page, the server delivers only the ciphertext and IV. The message remains locked until the user enters their password, which is used to locally decrypt the message in the browser.
+- **Security**: Because the server only sees the ciphertext and IV, it cannot read the plaintext messages.
+
+### Verification Steps
+
+1. **Verify Locked Page**:
+   - Log in and navigate to `/account`. 
+   - Notice the UI says "Message is encrypted" and prompts for a password.
+
+2. **Verify Database Storage**:
+   - Inspect `classmates.db` using a tool like SQLite Viewer.
+   - The `message` column will contain Base64 ciphertext, and `iv` will contain a Base64 IV.
+
+3. **Verify Network Tab (Save)**:
+   - Open DevTools Network tab.
+   - Go to "Set My Message", fill out the fields, and click save.
+   - Inspect the POST request to `/set-message`. Only `ciphertext` and `iv` are sent. No plaintext is sent.
+
+4. **Verify Network Tab (Unlock)**:
+   - Open DevTools Network tab.
+   - On the `/account` page, enter your password and click "Unlock".
+   - Notice that **zero network requests** are made during the decryption process. All processing happens in-browser memory.
